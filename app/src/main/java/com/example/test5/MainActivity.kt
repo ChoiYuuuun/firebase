@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             binding.logoutTextView.visibility= View.GONE
             binding.mainRecyclerView.visibility=View.VISIBLE
             makeRecyclerView()
+
         }
     }
 
@@ -71,11 +73,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
                 binding.mainRecyclerView.adapter = MyAdapter(this, itemList)
+
+
             }
             .addOnFailureListener{exception->
                 Log.d("yun","error..getting document..",exception)
                 Toast.makeText(this,"서버 데이터 획득 실패",Toast.LENGTH_SHORT).show()
 
             }
+
     }
+
 }

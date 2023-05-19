@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
@@ -28,7 +29,11 @@ class AddActivity : AppCompatActivity() {
         binding= ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
     }
+
+
 
     val requestLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult())
@@ -113,4 +118,5 @@ class AddActivity : AppCompatActivity() {
                 Log.d("yun","file save error", it)
             }
     }
+
 }
