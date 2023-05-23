@@ -2,7 +2,10 @@ package com.example.test5.model
 
 class ItemData {
     var docId: String? = null
-    var email: String? = null
-    var content: String? = null
-    var date: String? = null
+    var shoe_name: String? = null
+    var shoe_color: String? = null
+    var shoe_num: Int? = null
+    var shelf_location: Int? = null
+    var shelf_status: Boolean? =null
+
 }

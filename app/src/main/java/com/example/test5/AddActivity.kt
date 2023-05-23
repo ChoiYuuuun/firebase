@@ -90,6 +90,7 @@ class AddActivity : AppCompatActivity() {
         )
         // 관계형 데이트 베이스가 아니다보니, 데이터 저장할 수 있는 news라는 collection 지정
         MyApplication.db.collection("news")
+
             .add(data)
             .addOnSuccessListener {
                 uploadImage(it.id)

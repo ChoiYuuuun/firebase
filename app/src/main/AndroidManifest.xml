@@ -11,23 +11,25 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="신발정리해죠"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test5"
-        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
         <activity
             android:name=".AddActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>  <!--화면 조정할 수 있도록함-->
+            android:windowSoftInputMode="adjustResize" /> <!-- 화면 조정할 수 있도록함 -->
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
         <activity
             android:name=".LoadingActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

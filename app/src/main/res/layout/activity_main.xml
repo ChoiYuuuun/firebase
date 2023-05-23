@@ -17,7 +17,9 @@
         android:id="@+id/mainRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable = "true"
         android:visibility="gone"/>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addFab"
@@ -29,6 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="24dp"
-        android:layout_marginRight="24dp"/>
+        android:layout_marginRight="24dp"
+        android:visibility="invisible"/>
 
 </RelativeLayout>
