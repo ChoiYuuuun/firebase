@@ -19,6 +19,7 @@ import com.example.test5.model.ItemData
 import com.example.test5.recycler.MyAdapter
 import com.example.test5.util.ItemTouchHelperCallback
 import java.util.Collections
+import com.example.test5.ListActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         myCheckPermission(this) // 작성한 함수임
         binding.addFab.setOnClickListener {
             if(MyApplication.checkAuth()){
-                startActivity(Intent(this, AddActivity::class.java))
+                startActivity(Intent(this, ListActivity::class.java))
             }
             else {
                 Toast.makeText(this, "인증진행해주세요 ",Toast.LENGTH_SHORT).show()
@@ -68,7 +69,10 @@ class MainActivity : AppCompatActivity() {
 
     // 기본 화면에 신발 목록 나타나는 방식
     private fun makeRecyclerView(){
+        //var shoesRef = MyApplication.db.collection("shoes")
+        //shoesRef.orderBy("order")
         MyApplication.db.collection("shoes")
+            .orderBy("order")
             .get()
             .addOnSuccessListener { result->
                 val itemList = mutableListOf<ItemData>()
@@ -79,19 +83,19 @@ class MainActivity : AppCompatActivity() {
                     //Collections.swap(itemList,0,1)
                 }
 
+
                 //Collections.swap(itemList,0,1)
                 //itemList.sortBy{it.num}
                 binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
                 binding.mainRecyclerView.adapter = MyAdapter(this, itemList)
 
                 // 여기서 부터는 순서 바꾸기 해보기
-                val itemTouchHelperCallback = ItemTouchHelperCallback(MyAdapter(this,itemList))
+                //val itemTouchHelperCallback = ItemTouchHelperCallback(MyAdapter(this,itemList))
                 //  ItemTouchHelper의 생성자로 ItemTouchHelper.Callback객체 세팅
-                val helper = ItemTouchHelper(itemTouchHelperCallback)
-                helper.attachToRecyclerView(binding.mainRecyclerView)
+                //val helper = ItemTouchHelper(itemTouchHelperCallback)
+                //helper.attachToRecyclerView(binding.mainRecyclerView)
 
-                // 순서 바꾸기 시도 2
-                //ItemTouchHelper itemTouchhelper = new ItemTouchHelper(new ItemTouchHelper.SipleCallback())
+
 
             }
             .addOnFailureListener{exception->

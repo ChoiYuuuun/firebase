@@ -7,5 +7,7 @@ class ItemData {
     var shoe_num: Int? = null
     var shelf_location: Int? = null
     var shelf_status: Boolean? =null
+    var order: Int? = null
+    var remain: Boolean? = null
 
 }

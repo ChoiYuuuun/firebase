@@ -2,6 +2,7 @@ package com.example.test5.recycler
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -39,11 +40,13 @@ class MyAdapter(val context: Context, val itemList: MutableList<ItemData>): Recy
 
     //아이템을 드래그하면 호출되는 메서드
     override fun onItemMove(from_position: Int, to_position: Int): Boolean {
-        Toast.makeText(context, "from_position: $from_position, to_position: $to_position", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, "from_position: $from_position, to_position: $to_position", Toast.LENGTH_SHORT).show()
+        Log.d("ItemMove", "from_position: $from_position, to_position: $to_position")
+
         // 리스트 갱신
         //itemList.removeAt(from_position)
         //itemList.add(to_position, name)
-        Collections.swap(itemList, from_position, to_position)
+       // Collections.swap(itemList, from_position, to_position)
         //notifyItemMoved(from_position, to_position)
         return true
 
@@ -52,6 +55,7 @@ class MyAdapter(val context: Context, val itemList: MutableList<ItemData>): Recy
     //아이템를 스와이프 하면 호출되는 메서드
     override fun onItemSwipe(position: Int) {
         val item = itemList[position]
+        Toast.makeText(context, "from_position: $position",  Toast.LENGTH_SHORT).show()
         // 리스트 아이템 삭제
         //itemList.removeAt(position)
         val docId = item.docId
